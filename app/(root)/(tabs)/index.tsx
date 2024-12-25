@@ -11,10 +11,7 @@ export default function Index() {
       }}
     >
       <Text className="bg-gray-300 px-6 py-4 rounded-xl text-3xl  text-red-600">Welcome to your app</Text>
-      <Link href={"/sign-in"}>Sign In</Link>
-      <Link href={"/explore"}>Explore</Link>
-      <Link href={"/profile"}>Profile</Link>
-      <Link href={"/properties/1"}>Property</Link>
+
     </View>
   );
 }
