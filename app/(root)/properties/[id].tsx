@@ -36,7 +36,7 @@ import {
           showsVerticalScrollIndicator={false}
           contentContainerClassName="pb-32 bg-white"
         >
-          <View className="relative w-full" style={{ height: windowHeight / 2 }}>
+          <View className="relative w-full" style={{ height: windowHeight / 3 }}>
             <Image
               source={{ uri: property?.image }}
               className="size-full"
@@ -50,7 +50,7 @@ import {
             <View
               className="z-50 absolute inset-x-7"
               style={{
-                top: Platform.OS === "ios" ? 70 : 20,
+                top: Platform.OS === "ios" ? 30 : 20,
               }}
             >
               <View className="flex flex-row items-center w-full justify-between">
