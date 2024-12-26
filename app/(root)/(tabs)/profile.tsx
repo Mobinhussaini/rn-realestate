@@ -50,51 +50,57 @@ const Profile = () => {
         )
     }
 
-    return (
-        <SafeAreaView>
-            <ScrollView 
-                showsVerticalScrollIndicator={false}
-                contentContainerClassName='pb-32 px-6'
-                >
-                    <View className='flex flex-row items-center justify-between mt-5'>
-                        <Text className='text-xl font-rubik-bold'>Profile</Text>
-                        <Image source={icons.bell} className='size-6'/> 
-                    </View>
-
-                    <View className='flex-row justify-center flex mt-5'>
-                        <View className='flex flex-col items-center relative mt-5'>
-                            <Image source={{uri: user?.avatar}} alt={user?.name} className='size-44 relative rounded-full'/> 
-                            <TouchableOpacity className='absolute bottom-9 right-3'>
-                                <Image source={icons.edit} className='size-9'/> 
-                            </TouchableOpacity>
-                            <Text className='text-xl font-rubik-bold mt-2'>{user?.name}</Text>
+    if(!loading && user !== null && user !== undefined){
+        return (
+            <SafeAreaView>
+                <ScrollView 
+                    showsVerticalScrollIndicator={false}
+                    contentContainerClassName='pb-32 px-6'
+                    >
+                        <View className='flex flex-row items-center justify-between mt-5'>
+                            <Text className='text-xl font-rubik-bold'>Profile</Text>
+                            <Image source={icons.bell} className='size-6'/> 
                         </View>
-                    </View>
 
-                    <View className='flex flex-col mt-10'>
-                        <SettingsItem icon={icons.calendar} title="My Bookings" /> 
-                        <SettingsItem icon={icons.wallet} title="Payments" /> 
-                    </View>
+                        <View className='flex-row justify-center flex mt-5'>
+                            <View className='flex flex-col items-center relative mt-5'>
+                                <Image source={{uri: user?.avatar}} alt={user?.name} className='size-44 relative rounded-full'/>
 
-                    <View className='flex flex-col mt-5 border-t pt-5 border-primary-200'>
-                        {settings.slice(2).map((item, index)=> (
-                            <SettingsItem key={index} {...item} /> 
-                        ))}
-                    </View>
+                                {/* <Image source={images.profile1} alt={user?.name} className='size-44 relative rounded-full'/> */}
 
-                    <View className='flex flex-col mt-5 border-t pt-5 border-primary-200'>
-                        <SettingsItem 
-                            icon={icons.logout} 
-                            title="Sign Out" 
-                            textStyle='text-danger' 
-                            showArrow={false}
-                            onPress={handleLogout}
-                            /> 
-                    </View>
+                                <TouchableOpacity className='absolute bottom-9 right-3'>
+                                    <Image source={icons.edit} className='size-9'/> 
+                                </TouchableOpacity>
+                                <Text className='text-xl font-rubik-bold mt-2'>{user?.name}</Text>
+                            </View>
+                        </View>
 
-            </ScrollView>
-        </SafeAreaView>
-    );
+                        <View className='flex flex-col mt-10'>
+                            <SettingsItem icon={icons.calendar} title="My Bookings" /> 
+                            <SettingsItem icon={icons.wallet} title="Payments" /> 
+                        </View>
+
+                        <View className='flex flex-col mt-5 border-t pt-5 border-primary-200'>
+                            {settings.slice(2).map((item, index)=> (
+                                <SettingsItem key={index} {...item} /> 
+                            ))}
+                        </View>
+
+                        <View className='flex flex-col mt-5 border-t pt-5 border-primary-200'>
+                            <SettingsItem 
+                                icon={icons.logout} 
+                                title="Sign Out" 
+                                textStyle='text-danger' 
+                                showArrow={false}
+                                onPress={handleLogout}
+                                /> 
+                        </View>
+
+                </ScrollView>
+            </SafeAreaView>
+        );
+    }
+
 }
 
 const styles = StyleSheet.create({})
